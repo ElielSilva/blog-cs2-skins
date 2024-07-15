@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background: url('../img/background_img.png') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  & .div {
+    background-color: black;
+    width: 100vw;
+    height: 50vh;
+  }
+}
+
+main div {
+  
+}
