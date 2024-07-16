@@ -1,12 +1,13 @@
-const arrayWaponPistol = []
-const arrayWaponRifle = []
-const arrayWaponSuperRifle = []
-const arrayWaponKnife = []
-const arrayGloves = []
-const arrayMachineGun = []
-const arraySmg = []
-const arrayShotgun = []
-const arrayEquipment = []
+window.arrayWaponPistol = []
+window.arrayWaponRifle = []
+window.arrayWaponSuperRifle = []
+window.arrayWaponKnife = []
+window.arrayGloves = []
+window.arrayMachineGun = []
+window.arraySmg = []
+window.arrayShotgun = []
+window.arrayEquipment = []
+window.firstElements = []
 
 
 const request = async () => {
@@ -16,45 +17,61 @@ const request = async () => {
 }
 
 async function SeparateSkins() {
-  const a = await request();
-  
-  for (const iterator of Object.values(a)) {
+  const data = await request();
+
+  for (const iterator of Object.values(data)) {
     switch (iterator.weapon_type) {
       case 'rifle':
+        if (arrayWaponRifle.length === 0)
+          firstElements.push(iterator)
         arrayWaponRifle.push(iterator)
         break;
       case 'pistol':
+        if (arrayWaponPistol.length == 0)
+          firstElements.push(iterator)
         arrayWaponPistol.push(iterator)
         break;
       case 'knife':
+        if (arrayWaponKnife.length == 0)
+          firstElements.push(iterator)
         arrayWaponKnife.push(iterator)
         break;
       case "sniper rifle":
+        if (arrayWaponSuperRifle.length == 0)
+          firstElements.push(iterator)
         arrayWaponSuperRifle.push(iterator)
         break;
       case "shotgun":
+        if (arrayShotgun.length == 0)
+          firstElements.push(iterator)
         arrayShotgun.push(iterator)
         break;
       case "smg":
+        if (arraySmg.length == 0)
+          firstElements.push(iterator)
         arraySmg.push(iterator)
           break;
       case "gloves":
+        if (arrayGloves.length == 0)
+          firstElements.push(iterator)
         arrayGloves.push(iterator)
         break;
       case 'machine gun':
+        if (arrayMachineGun.length == 0)
+          firstElements.push(iterator)
         arrayMachineGun.push(iterator)
         break;
       
       case 'equipment':
+        if (arrayEquipment.lentgh == 0)
+          firstElements.push(iterator)
         arrayEquipment.push(iterator)
         break;
       default:
         break;
     }
   }
+}
 
-  
-  //console.log(arrayWaponRifle[0]);
-  //console.log(arrayEquipment[0], arrayGloves[0]);
-  //console.log(Object.keys(a));
-}SeparateSkins()
+
+SeparateSkins()
