@@ -1,15 +1,18 @@
-name: 'Netlify Deploy blog on push to main'
+name: Deploy to Netlify
 on:
   push:
-  release:
-    types: [published]
+    branches:
+      - main
 jobs:
-  deploy:
-    name: 'Deploy to Netlify'
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: jsmrcaga/action-netlify-deploy@v2.0.0
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy to Netlify
+        uses: jsmrcaga/action-netlify-deploy@v2.0.0
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_DEPLOY_TO_PROD: true
-        timeout-minutes: 1
+          build_directory: .
