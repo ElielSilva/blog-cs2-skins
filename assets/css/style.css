@@ -25,16 +25,19 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 24vw;
   height: 55vh;
   text-align: center;
   align-items: center;
-  margin: 2.5px 2.5px;
+  margin: 4px 4px;
   justify-content: center;
   background-color: rgba(177, 173, 173, 0.459);
   border-radius: 7px;
-}
-
-main div {
-  
+  & img {
+    width: 150px;
+  }
+  & img:hover {
+    transform: scale(1.1);
+    width: 450px;
+  }
 }
