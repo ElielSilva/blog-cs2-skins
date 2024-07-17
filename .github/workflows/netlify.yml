@@ -1,7 +1,7 @@
-name: Build and Deploy to Netlify
+name: 'Netlify Deploy blog on push to main'
 on:
-  push:
-  pull_request:
+  release:
+    types: [published]
 jobs:
   deploy:
     name: 'Deploy to Netlify'
