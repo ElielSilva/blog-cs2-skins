@@ -16,5 +16,5 @@ jobs:
       - name: Deploy to Netlify
         run: netlify deploy --prod --dir=.
         env:
-          NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: nfp_9S4vpBSshkjTk9EdqntpX2iWzaapQbNif109
+          NETLIFY_SITE_ID: f73e75bb-1b95-4584-9f3a-208054ac5c75
