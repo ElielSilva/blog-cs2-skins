@@ -1,5 +1,6 @@
 name: 'Netlify Deploy blog on push to main'
 on:
+  push:
   release:
     types: [published]
 jobs:
