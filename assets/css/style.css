@@ -37,7 +37,7 @@
     width: 150px;
   }
   & img:hover {
-    transform: scale(1.1);
-    width: 450px;
+    transition: 0.8s;
+    width: 350px;
   }
 }

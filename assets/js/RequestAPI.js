@@ -8,11 +8,13 @@ window.arraySmg = []
 window.arrayShotgun = []
 window.arrayEquipment = []
 window.firstElements = []
+window.arraySkins = []
 
 
 const request = async () => {
   const result = await fetch("https://spacerulerwill.github.io/CS2-API/api/skins.json")
   const json = await result.json()
+  window.arraySkins = Object.values(json)
   return json
 }
 
@@ -73,5 +75,7 @@ async function SeparateSkins() {
   }
 }
 
+window.onload(
+  SeparateSkins()
+)
 
-SeparateSkins()
