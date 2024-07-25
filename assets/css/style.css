@@ -18,7 +18,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content:space-between;
   padding-bottom: 15px;
 }
 
@@ -31,7 +31,8 @@
   align-items: center;
   margin: 4px 4px;
   justify-content: center;
-  background-color: rgba(177, 173, 173, 0.459);
+  background-color: rgba(10, 10, 10, 0.61);
+  color: antiquewhite;
   border-radius: 7px;
   & img {
     width: 150px;

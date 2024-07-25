@@ -1,81 +1,79 @@
-window.arrayWaponPistol = []
-window.arrayWaponRifle = []
-window.arrayWaponSuperRifle = []
-window.arrayWaponKnife = []
-window.arrayGloves = []
-window.arrayMachineGun = []
-window.arraySmg = []
-window.arrayShotgun = []
-window.arrayEquipment = []
-window.firstElements = []
-window.arraySkins = []
 
-
-const request = async () => {
-  const result = await fetch("https://spacerulerwill.github.io/CS2-API/api/skins.json")
-  const json = await result.json()
-  window.arraySkins = Object.values(json)
-  return json
-}
-
-async function SeparateSkins() {
-  const data = await request();
-
-  for (const iterator of Object.values(data)) {
-    switch (iterator.weapon_type) {
-      case 'rifle':
-        if (arrayWaponRifle.length === 0)
-          firstElements.push(iterator)
-        arrayWaponRifle.push(iterator)
-        break;
-      case 'pistol':
-        if (arrayWaponPistol.length == 0)
-          firstElements.push(iterator)
-        arrayWaponPistol.push(iterator)
-        break;
-      case 'knife':
-        if (arrayWaponKnife.length == 0)
-          firstElements.push(iterator)
-        arrayWaponKnife.push(iterator)
-        break;
-      case "sniper rifle":
-        if (arrayWaponSuperRifle.length == 0)
-          firstElements.push(iterator)
-        arrayWaponSuperRifle.push(iterator)
-        break;
-      case "shotgun":
-        if (arrayShotgun.length == 0)
-          firstElements.push(iterator)
-        arrayShotgun.push(iterator)
-        break;
-      case "smg":
-        if (arraySmg.length == 0)
-          firstElements.push(iterator)
-        arraySmg.push(iterator)
-          break;
-      case "gloves":
-        if (arrayGloves.length == 0)
-          firstElements.push(iterator)
-        arrayGloves.push(iterator)
-        break;
-      case 'machine gun':
-        if (arrayMachineGun.length == 0)
-          firstElements.push(iterator)
-        arrayMachineGun.push(iterator)
-        break;
-      
-      case 'equipment':
-        if (arrayEquipment.lentgh == 0)
-          firstElements.push(iterator)
-        arrayEquipment.push(iterator)
-        break;
-      default:
-        break;
+const requestAllSkins = async () => {
+  const URL = "https://pdmxsxggktrbgplirgvi.supabase.co/rest/v1/skins";
+  try {
+    const response = await fetch(URL, {
+        method: 'GET',
+        headers: {
+          "Content-Type":"application/json",
+          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbXhzeGdna3RyYmdwbGlyZ3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3NTU5MTUsImV4cCI6MjAzNzMzMTkxNX0.W02miXj37LQsKOwJPQxdfGbD5iXKuwsvE7fMt_Z6Juw',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbXhzeGdna3RyYmdwbGlyZ3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3NTU5MTUsImV4cCI6MjAzNzMzMTkxNX0.W02miXj37LQsKOwJPQxdfGbD5iXKuwsvE7fMt_Z6Juw'
+        }
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
     }
+    const json = await response.json()
+    console.log(json)
+    //window.arraySkins = Object.values(json)
+    return json
+
+  } catch (error) {
+      console.error(error.message);
   }
 }
 
-window.onload(
-  SeparateSkins()
-)
+const requestByIdWithComents = async (id) => {
+  const URL = "https://pdmxsxggktrbgplirgvi.supabase.co/rest/v1/rpc/get_joined_data";
+  try {
+    const response = await fetch(URL, {
+        method: 'POST',
+        headers: {
+          "Content-Type":"application/json",
+          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbXhzeGdna3RyYmdwbGlyZ3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3NTU5MTUsImV4cCI6MjAzNzMzMTkxNX0.W02miXj37LQsKOwJPQxdfGbD5iXKuwsvE7fMt_Z6Juw',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbXhzeGdna3RyYmdwbGlyZ3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3NTU5MTUsImV4cCI6MjAzNzMzMTkxNX0.W02miXj37LQsKOwJPQxdfGbD5iXKuwsvE7fMt_Z6Juw'
+        },
+        body: JSON.stringify({ p_id: parseInt(id)})
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json()
+    console.log(json)
+    //window.arraySkins = Object.values(json)
+    return json
+
+  } catch (error) {
+      console.error(error.message);
+  }
+}
+
+const requestById = async (id) => {
+  const URL = `https://pdmxsxggktrbgplirgvi.supabase.co/rest/v1/skins?id=eq.${id}`;
+  try {
+    const response = await fetch(URL, {
+        method: 'GET',
+        headers: {
+          "Content-Type":"application/json",
+          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbXhzeGdna3RyYmdwbGlyZ3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3NTU5MTUsImV4cCI6MjAzNzMzMTkxNX0.W02miXj37LQsKOwJPQxdfGbD5iXKuwsvE7fMt_Z6Juw',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkbXhzeGdna3RyYmdwbGlyZ3ZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE3NTU5MTUsImV4cCI6MjAzNzMzMTkxNX0.W02miXj37LQsKOwJPQxdfGbD5iXKuwsvE7fMt_Z6Juw'
+        },
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json()
+    console.log(json)
+    //window.arraySkins = Object.values(json)
+    return json
+
+  } catch (error) {
+      console.error(error.message);
+  }
+}
+
+window.utils = { requestAllSkins, requestByIdWithComents, requestById }
 
