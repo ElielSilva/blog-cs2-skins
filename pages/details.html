@@ -7,12 +7,25 @@
     <title>Blog-cs2-skins-details</title>
     <script src="../assets/js/RequestAPI.js" defer></script>
     <script src="../assets/js/RenderDetails.js" defer></script>
+    <script src="../assets/js/CreateComents.js" defer></script>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+
 </head>
 
 <body>
-    <main>
+    <main class="main-details">
         <div id="content">
+        </div>
+        <div id="content-coments">
+            <h2>Comentarios</h2>
+            <div id="coments">
+            </div>
+            <div>
+                <input type="text" id="name" placeholder="Nome">
+                <input type="text" id="coment" placeholder="Comentario">
+                <button id="send-coment" type="submit">Enviar</button>
+            </div>
         </div>
     </main>
     <footer>
