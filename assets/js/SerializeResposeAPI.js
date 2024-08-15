@@ -11,23 +11,23 @@ window.firstElements = []
 window.arraySkins = []
 
 async function SeparateSkins() {
-  console.log("data[0]")
   let data = [];
 
-  if (localStorage.getItem('data-resquest') == undefined) {
-    
-    data = await utils.requestAllSkins();
+  const data_request = localStorage.getItem('data-resquest');
+  const isNull = data_request === null;
+
+  if (isNull) {
+    data = await window.utilsApi.requestAllSkins();
     localStorage.setItem('data-resquest', JSON.stringify(data));
   }
   
   data = JSON.parse(localStorage.getItem('data-resquest'));
-  console.log(data[0])
 
   for (const iterator of data) {
-    console.log(iterator)
-    switch (iterator.weapon_type) {
+    const x = iterator.weapon_type
+    switch (x) {
       case 'rifle':
-        if (arrayWaponRifle.length === 0)
+        if (arrayWaponRifle.length == 0)
           firstElements.push(iterator)
         arrayWaponRifle.push(iterator)
         break;
@@ -78,10 +78,4 @@ async function SeparateSkins() {
   }
 }
 
-//window.onload =  () => { 
-  SeparateSkins()
-//}
-
-window.onload = function() {
-  console.log('window - onload'); // 4th
-};
+ window.utils = { SeparateSkins }

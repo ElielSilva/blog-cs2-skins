@@ -75,5 +75,5 @@ const requestById = async (id) => {
   }
 }
 
-window.utils = { requestAllSkins, requestByIdWithComents, requestById }
+window.utilsApi = { requestAllSkins, requestByIdWithComents, requestById }
 

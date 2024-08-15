@@ -2,11 +2,14 @@ var content = document.getElementById('content');
 content.innerHTML = '<h3>Carregando</h3>';
 
 const Render = async () => {
-    const firstElements = window.firstElements || [];
-    console.log(firstElements)
+    await window.utils.SeparateSkins();
+    console.log("Render")
+    const firstElements = window.firstElements;
+    console.log("f: ", firstElements[0])
+    console.log("Render 1")
     content.innerHTML = '';
     firstElements.forEach(first => {
-
+        console.log("first: ", first);
         const htmlField = `
         <div class="card">
             <img src="${first.image_urls}" alt="${first.formatted_name}" class="content-img">
@@ -29,7 +32,7 @@ const Render = async () => {
     
 
 
-//window.onload = () => { 
+ window.onload = () => { 
     Render()
-//}
+ }
 
