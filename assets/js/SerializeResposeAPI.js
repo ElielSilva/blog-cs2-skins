@@ -7,8 +7,8 @@ window.arrayMachineGun = []
 window.arraySmg = []
 window.arrayShotgun = []
 window.arrayEquipment = []
-window.firstElements = []
 window.arraySkins = []
+window.firstElements = []
 
 async function SeparateSkins() {
   let data = [];
@@ -78,4 +78,17 @@ async function SeparateSkins() {
   }
 }
 
- window.utils = { SeparateSkins }
+function changePage(numberPage) {
+  intNumberPage = parseInt(numberPage)
+  firstElements = [arrayWaponPistol[intNumberPage]
+  ,arrayWaponRifle[intNumberPage]
+  ,arrayWaponSuperRifle[intNumberPage]
+  ,arrayWaponKnife[intNumberPage]
+  ,arrayGloves[intNumberPage]
+  ,arrayMachineGun[intNumberPage]
+  ,arraySmg[intNumberPage]
+  ,arrayShotgun[intNumberPage]
+  ,arrayEquipment[intNumberPage]]
+}
+
+ window.utils = { SeparateSkins, changePage }
