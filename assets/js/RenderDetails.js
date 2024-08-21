@@ -2,6 +2,7 @@ const renderDetails = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     let skinData = await window.utilsApi.requestByIdWithComents(id);
+    let comentsHtml = document.getElementById('content-coments');
     if(!skinData.length) {
       skinData = await window.utilsApi.requestById(id)
       console.log(skinData)
@@ -19,11 +20,11 @@ const renderDetails = async () => {
     
     skinData.forEach(Comment => {
         if(Comment.user_name) {
-          htmlField = htmlField + `<div class="card">
+            comentsHtml.insertAdjacentHTML("afterend",`<div class="card-comments">
               
               <h3>${Comment.user_name}</h3>
               <p>${Comment.description_comment}</p>
-          </div>`;
+          </div>`);
         }
     })
         

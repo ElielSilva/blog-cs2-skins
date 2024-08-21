@@ -10,10 +10,18 @@
     <script src="../assets/js/CreateComents.js" defer></script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
-
+    <link rel="stylesheet" href="../assets/css/header.css">
 </head>
-
 <body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="#Contact">Contact</a></li>
+          </ul>
+        </nav>
+    </header>
     <main class="main-details">
         <div id="content">
         </div>
@@ -21,15 +29,15 @@
             <h2>Comentarios</h2>
             <div id="coments">
             </div>
-            <div>
+            <form>
                 <input type="text" id="name" placeholder="Nome">
-                <input type="text" id="coment" placeholder="Comentario">
+                <textarea type="text" id="coment" placeholder="Comentario" maxlength="500"></textarea>
                 <button id="send-coment" type="submit">Enviar</button>
-            </div>
+            </form>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Developed by: </p>
+    <footer id="Contact">
+        <p>&copy; 2024 Developed by: <a href="https://github.com/jadeilsonm">Jadeilsonm</a> and <a href="https://github.com/ElielSilva">ElielSilva</a></p>
     </footer>
 </body>
 
