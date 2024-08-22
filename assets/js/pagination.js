@@ -6,13 +6,10 @@ buttonProxPage.addEventListener('click' ,() => {
   spanShowNumberPage.innerText = parseInt(spanShowNumberPage.innerText) + 1
   changePage(parseInt(spanShowNumberPage.innerText))
   window.utilsRender.Render(window.firstElements)
-  console.log("foi")
 });
 
 buttonAntPage.addEventListener('click' ,() => {
   spanShowNumberPage.innerText = parseInt(spanShowNumberPage.innerText) - 1
   changePage(parseInt(spanShowNumberPage.innerText))
   window.utilsRender.Render(window.firstElements)
-  console.log("foi")
-
 });

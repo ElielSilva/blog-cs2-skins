@@ -53,6 +53,16 @@ form {
   }
 }
 
+.button-next-previus {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .main-details {
   display: flex;
   flex-direction: column;

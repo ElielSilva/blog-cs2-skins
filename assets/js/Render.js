@@ -3,10 +3,7 @@ content.innerHTML = '<h3>Carregando</h3>';
 
 const RenderInitial = async () => {
     await window.utils.SeparateSkins();
-    console.log("Render")
     const firstElements = window.firstElements;
-    console.log("f: ", firstElements[0])
-    console.log("Render 1")
     content.innerHTML = '';
     firstElements.forEach(first => {
         console.log("first: ", first);
@@ -24,14 +21,12 @@ const RenderInitial = async () => {
         const button = document.getElementById(first.id);
         button.style.cursor = 'pointer';
         button.onclick = () => {
-            console.log('click');
             window.location.href = `pages/details.html?id=${first.id}`;
         }        
     })
 }
 
 const Render = async (listActual) => {
-    console.log("Render")
     const firstElements = window.firstElements;
     content.innerHTML = '';
     listActual.forEach(first => {
